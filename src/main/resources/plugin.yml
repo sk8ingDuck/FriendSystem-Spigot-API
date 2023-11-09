@@ -1,0 +1,3 @@
+name: FriendSystem-Spigot-API
+version: '${project.version}'
+main: me.sk8ingduck.friendsystem.SpigotAPI
