@@ -4,6 +4,15 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+/**
+ * This is a helper class to represent a party.
+ * <p>
+ * This class provides functionalities to:
+ * - Retrieve the party's unique identifier.
+ * - Get the UUID of the party leader.
+ * - List of all member UUIDs in the party.
+ * - Obtain a combined list of the leader and all members.
+ */
 public class Party {
 	private final int partyId;
 	private final UUID leaderUUID;

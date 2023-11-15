@@ -1,3 +1,11 @@
 name: FriendSystem-Spigot-API
 version: '${project.version}'
 main: me.sk8ingduck.friendsystem.SpigotAPI
+
+commands:
+  testparty:
+    usage: /testparty <subcommand> <player>
+    description: Test party functions with SpigotAPI
+  testfriend:
+    usage: /testfriend <subcommand> <player>
+    description: Test friend functions with SpigotAPI
