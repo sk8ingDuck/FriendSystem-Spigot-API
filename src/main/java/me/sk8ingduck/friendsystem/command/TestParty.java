@@ -123,7 +123,7 @@ public class TestParty implements CommandExecutor, TabCompleter {
 			player.sendMessage("Player not found.");
 			return;
 		}
-		partyManager.invitePlayer(player, targetPlayer);
+		partyManager.invitePlayer(player.getUniqueId(), targetPlayer);
 		player.sendMessage("Invited " + targetPlayer.getName() + " to the party.");
 	}
 
@@ -137,7 +137,7 @@ public class TestParty implements CommandExecutor, TabCompleter {
 			player.sendMessage("Player not found.");
 			return;
 		}
-		partyManager.removeInvite(player, targetPlayer);
+		partyManager.removeInvite(player.getUniqueId(), targetPlayer);
 		player.sendMessage("Removed invite for " + targetPlayer.getName());
 	}
 
@@ -151,7 +151,7 @@ public class TestParty implements CommandExecutor, TabCompleter {
 			player.sendMessage("Player not found.");
 			return;
 		}
-		partyManager.addPlayer(player, targetPlayer);
+		partyManager.addPlayer(player.getUniqueId(), targetPlayer);
 		player.sendMessage("Added " + targetPlayer.getName() + " to the party.");
 	}
 
@@ -165,7 +165,7 @@ public class TestParty implements CommandExecutor, TabCompleter {
 			player.sendMessage("Player not found.");
 			return;
 		}
-		partyManager.kickPlayer(player, targetPlayer);
+		partyManager.kickPlayer(player.getUniqueId(), targetPlayer);
 		player.sendMessage("Kicked " + targetPlayer.getName() + " from the party.");
 	}
 
@@ -179,7 +179,7 @@ public class TestParty implements CommandExecutor, TabCompleter {
 			player.sendMessage("Player not found.");
 			return;
 		}
-		partyManager.promotePlayer(player, targetPlayer);
+		partyManager.promotePlayer(player.getUniqueId(), targetPlayer);
 		player.sendMessage("Promoted " + targetPlayer.getName());
 	}
 
@@ -193,7 +193,7 @@ public class TestParty implements CommandExecutor, TabCompleter {
 			player.sendMessage("Player not found.");
 			return;
 		}
-		partyManager.demotePlayer(player, targetPlayer);
+		partyManager.demotePlayer(player.getUniqueId(), targetPlayer);
 		player.sendMessage("Demoted " + targetPlayer.getName());
 	}
 

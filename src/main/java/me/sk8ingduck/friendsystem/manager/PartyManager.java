@@ -17,7 +17,7 @@ import java.util.function.Consumer;
  * Main functions:
  * - Retrieving party data from MySQL.
  * - Sending plugin messages to BungeeCord for party-related actions (e.g., creating parties, inviting members, ...).
- *   BungeeCord then executes these changes.
+ * BungeeCord then executes these changes.
  * <p>
  * PartyManager offers both synchronous and asynchronous methods for handling Party objects.
  * Asynchronous usage is recommended to minimize server lag.
@@ -55,40 +55,34 @@ public class PartyManager {
 		sendPluginMessage(leader, PartyAction.DISBAND, leader.getUniqueId().toString());
 	}
 
-	public void invitePlayer(Player leader, Player player) {
-		sendPluginMessage(leader, PartyAction.ADD_INVITE,
-				leader.getUniqueId().toString(), player.getUniqueId().toString());
+	public void invitePlayer(UUID leader, Player player) {
+		sendPluginMessage(player, PartyAction.ADD_INVITE, leader.toString(), player.getUniqueId().toString());
 	}
 
-	public void removeInvite(Player leader, Player player) {
-		sendPluginMessage(leader, PartyAction.REMOVE_INVITE,
-				leader.getUniqueId().toString(), player.getUniqueId().toString());
+	public void removeInvite(UUID leader, Player player) {
+		sendPluginMessage(player, PartyAction.REMOVE_INVITE, leader.toString(), player.getUniqueId().toString());
 	}
 
-	public void addPlayer(Player leader, Player player) {
-		sendPluginMessage(leader, PartyAction.ADD_PLAYER,
-				leader.getUniqueId().toString(), player.getUniqueId().toString());
+	public void addPlayer(UUID leader, Player player) {
+		sendPluginMessage(player, PartyAction.ADD_PLAYER, leader.toString(), player.getUniqueId().toString());
 	}
 
-	public void kickPlayer(Player leader, Player player) {
-		sendPluginMessage(leader, PartyAction.KICK_PLAYER,
-				leader.getUniqueId().toString(), player.getUniqueId().toString());
+	public void kickPlayer(UUID leader, Player player) {
+		sendPluginMessage(player, PartyAction.KICK_PLAYER, leader.toString(), player.getUniqueId().toString());
 	}
 
-	public void promotePlayer(Player leader, Player player) {
-		sendPluginMessage(leader, PartyAction.PROMOTE_PLAYER,
-				leader.getUniqueId().toString(), player.getUniqueId().toString());
+	public void promotePlayer(UUID leader, Player player) {
+		sendPluginMessage(player, PartyAction.PROMOTE_PLAYER, leader.toString(), player.getUniqueId().toString());
 	}
 
-	public void demotePlayer(Player leader, Player player) {
-		sendPluginMessage(leader, PartyAction.DEMOTE_PLAYER,
-				leader.getUniqueId().toString(), player.getUniqueId().toString());
+	public void demotePlayer(UUID leader, Player player) {
+		sendPluginMessage(player, PartyAction.DEMOTE_PLAYER, leader.toString(), player.getUniqueId().toString());
 	}
 
 	private void sendPluginMessage(Player player, PartyAction channel, String... args) {
 		ByteArrayDataOutput out = ByteStreams.newDataOutput();
 		out.writeUTF(channel.name());
-		for(String arg : args) {
+		for (String arg : args) {
 			out.writeUTF(arg);
 		}
 		player.sendPluginMessage(SpigotAPI.getInstance(), SpigotAPI.CHANNEL, out.toByteArray());
